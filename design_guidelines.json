@@ -1,0 +1,117 @@
+{
+  "project_name": "Ubuntu Telegram Bot Manager",
+  "theme": "light",
+  "archetype": "Archetype 4: Swiss & High-Contrast",
+  "design_philosophy": "Objective, rigid, and function-first. A technical control room for sysadmins that breaks away from generic SaaS interfaces by using stark contrasts, sharp edges, and structured grids. Color is used strictly for function and state indication.",
+  "colors": {
+    "background": "#FFFFFF",
+    "surface": "#F4F4F5",
+    "surface_hover": "#E4E4E7",
+    "primary": "#002FA7",
+    "primary_hover": "#002277",
+    "text_main": "#0A0A0A",
+    "text_muted": "#71717A",
+    "border": "#0A0A0A",
+    "border_light": "rgba(10, 10, 10, 0.15)",
+    "status": {
+      "running": "#10B981",
+      "stopped": "#EF4444",
+      "warning": "#F59E0B",
+      "terminal_bg": "#0A0A0A",
+      "terminal_text": "#4ADE80"
+    }
+  },
+  "typography": {
+    "headings": {
+      "family": "Cabinet Grotesk",
+      "weights": ["700", "900"],
+      "tracking": "tracking-tighter",
+      "casing": "normal"
+    },
+    "body": {
+      "family": "IBM Plex Sans",
+      "weights": ["400", "500", "600"],
+      "tracking": "tracking-normal",
+      "casing": "normal"
+    },
+    "mono": {
+      "family": "IBM Plex Mono",
+      "weights": ["400", "600"],
+      "purpose": "Logs, metrics, IP addresses, bot file names"
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl font-black tracking-tighter",
+      "h2": "text-2xl sm:text-3xl font-bold tracking-tight",
+      "h3": "text-xl sm:text-2xl font-bold tracking-tight",
+      "body": "text-base",
+      "small_labels": "text-xs font-bold uppercase tracking-[0.2em] text-text_muted"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "p-6 md:p-8",
+    "gap_strategy": "gap-6",
+    "radius": "rounded-none",
+    "borders": "border border-border",
+    "grid_modes": {
+      "dashboard_metrics": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "bot_list": "flex flex-col gap-4",
+      "form_layout": "flex flex-col gap-6"
+    }
+  },
+  "surfaces": {
+    "header": "Solid white background, strict 1px solid black bottom border, no shadow.",
+    "cards": "Solid white background, 1px solid black border, sharp edges (rounded-none). On hover: slight `-translate-y-1` lift with a hard solid black shadow (e.g., `shadow-[4px_4px_0px_#0A0A0A]`).",
+    "terminal": "Retro-Futurism 'Terminal' Look. Deep black background, neon green mono text, 1px solid border."
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-white hover:bg-primary_hover rounded-none border border-transparent font-bold transition-colors",
+      "secondary": "bg-white text-text_main border border-border hover:bg-surface rounded-none font-bold transition-colors",
+      "danger": "bg-status.stopped text-white hover:bg-red-700 rounded-none border border-transparent font-bold transition-colors"
+    },
+    "inputs": "Shadcn components heavily customized: rounded-none, border-border, focus:ring-2 focus:ring-primary focus:border-primary font-mono for technical inputs.",
+    "tables_lists": "Dense rows. High-contrast typography for data points (CPU/RAM). Status indicated by small solid geometric shapes (e.g., a green square for running, red square for stopped) instead of soft dots.",
+    "modals": "Backdrop blur. Modal container with white background, sharp corners, 2px solid black border, and heavy drop shadow.",
+    "toggles": "Square toggle switches. When active, fill with primary color."
+  },
+  "animations": {
+    "interaction": "Fast, mechanical transitions. `transition: transform 0.15s ease-out, background-color 0.15s ease-out`",
+    "logs": "Smooth auto-scroll. Use monospace font with no text-wrapping for authentic terminal feel.",
+    "hover": "Hard shadows appearing on cards/buttons, borders thickening slightly."
+  },
+  "icons": {
+    "library": "@phosphor-icons/react",
+    "style": "Bold or Duotone, geometric and highly legible for dense dashboards."
+  },
+  "media": {
+    "images": [
+      {
+        "category": "login_hero",
+        "url": "https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBzZXJ2ZXIlMjBuZXR3b3JrfGVufDB8fHx8MTc4MjI0NTkzNHww&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract blue networking cables, used for the left half of the split-screen login page to establish technical/devops atmosphere.",
+        "overlay": "bg-black/30"
+      }
+    ]
+  },
+  "page_specific_instructions": {
+    "login": "Split screen layout. Left side: cover image with dark overlay and large white typographic brand name 'BOT.CTL'. Right side: Minimalist, stark white form, highly structured, brutalist inputs.",
+    "dashboard": "Header with 'BOT.CTL' logo and user profile. Top section: 3 sharp-edged metric cards (Total CPU, Total RAM, Active Bots). Main section: Bot Manager List. Each bot row includes its name (.py file), status (Running/Stopped), CPU (%), RAM (MB), Uptime, and action group (Start/Stop, Restart, Logs, Settings, Delete).",
+    "bot_logs_viewer": "A dedicated section or full-screen modal showing raw real-time logs. Must use the 'terminal' surface style. Include a 'Clear Logs' and 'Auto-scroll' toggle.",
+    "bot_settings": "Settings view for a specific bot: configure Cron schedules (scheduled start/stop), toggle Auto-restart on crash, and view deployment path."
+  },
+  "testing": {
+    "data_testids": [
+      "login-username-input",
+      "login-password-input",
+      "login-submit-button",
+      "add-bot-button",
+      "bot-row-{id}",
+      "start-bot-button-{id}",
+      "stop-bot-button-{id}",
+      "restart-bot-button-{id}",
+      "view-logs-button-{id}",
+      "delete-bot-button-{id}",
+      "log-terminal-output"
+    ]
+  }
+}
